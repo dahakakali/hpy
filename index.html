@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy New Year 2025</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: radial-gradient(circle, #1a202c 50%, #2d3748 100%), url('https://source.unsplash.com/1600x900/?fireworks,newyear');
+      background-size: cover;
+      background-blend-mode: overlay;
+      color: #fefefe;
+      min-height: 100vh;
+      overflow-y: auto;
+    }
+    #fireworks-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .firework {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, #ffdd59, transparent);
+      border-radius: 50%;
+      animation: explode 2s infinite ease-out;
+    }
+    @keyframes explode {
+      0% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(2.5) translateY(-50px);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(3) translateY(-100px);
+      }
+    }
+    img {
+    width: 150px;
+    margin-inline:20px ;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 4px #ffffff;
+    
+}
+h1.title {
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+}
+    .title {
+      font-family: 'Parisienne', cursive;
+      font-size: 4rem;
+      background: linear-gradient(90deg, #ff7eb3, #ff758c, #f78ca0, #f7d794);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: gradient 5s infinite alternate;
+    }
+    @keyframes gradient {
+      0% {
+        background-position: 0%;
+      }
+      100% {
+        background-position: 100%;
+      }
+    }
+    .card {
+      perspective: 1000px;
+    }
+    .card-inner {
+      width: 100%;
+      height: 250px;
+      background: #2d3748;
+      border-radius: 15px;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+    }
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .card-front {
+      background: linear-gradient(135deg, #3b82f6, #9333ea);
+      color: #fff;
+      font-family: 'Parisienne', cursive;
+      font-size: 1.5rem;
+    }
+    .card-back {
+      background: linear-gradient(135deg, #9333ea, #3b82f6);
+      color: #fff;
+      transform: rotateY(180deg);
+      text-align: center;
+    }
+    .poem {
+      font-style: italic;
+      font-size: 1.2rem;
+    }
+    @media (max-width: 640px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+      .card-inner {
+        height: 200px;
+      }
+      h1.title {
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+    }
+  </style>
+</head>
+<body>
+  <div id="fireworks-container"></div>
+
+  <header class="text-center py-8">
+    
+    <h1 class="title"><img src="./logo.jpg" alt=""> Happy New Year 2025 </h1>
+    <p class="text-2xl mt-4">Celebrate with hope, dreams, and joy!</p>
+    <p class="text-2xl mt-4">click the card</p>
+  </header>
+
+  <main class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-8">
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          🌟 New Beginnings
+        </div>
+        <div class="card-face card-back">
+          <p class="poem">"A year anew, with hopes so bright,<br> Each dawn a chance, a guiding light."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          ✨ Dream Big
+        </div>
+        <div class="card-face card-back">
+          <p class="poem">"The stars above, your dreams take flight,<br> The future’s yours, a dazzling sight."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          💖 Cherish Moments
+        </div>
+        <div class="card-face card-back">
+          <p class="poem">"Each moment shared, a treasure near,<br> Together we shine, year to year."</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center py-8 mt-8">
+    <p>© 2025 - Celebrate every moment, cherish every joy!</p>
+  </footer>
+
+  <script>
+    function createFirework() {
+      const container = document.getElementById('fireworks-container');
+      const firework = document.createElement('div');
+      firework.className = 'firework';
+      firework.style.left = `${Math.random() * 100}%`;
+      firework.style.top = `${Math.random() * 50 + 50}%`;
+      container.appendChild(firework);
+
+      setTimeout(() => firework.remove(), 2000);
+    }
+
+    setInterval(createFirework, 300);
+  </script>
+</body>
+</html>
